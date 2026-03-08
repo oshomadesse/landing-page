@@ -1,9 +1,0 @@
-# Source assets (images embedded as base64 in HTML)
-*.jpeg
-*.jpg
-*.png
-*.mp4
-*.mov
-
-# macOS
-.DS_Store
