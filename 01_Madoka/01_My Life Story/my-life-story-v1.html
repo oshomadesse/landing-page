@@ -283,6 +283,45 @@ section + section > .container::before { content: ''; display: block; border-top
 }
 .video-thumb-play svg { width: 22px; height: 22px; margin-left: 3px; }
 
+/* Fullscreen video overlay */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.video-overlay video {
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+.video-overlay-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.video-overlay-close:hover { background: rgba(255,255,255,0.3); }
+
 /* Before / After */
 .ba-block {
   display: grid;
@@ -699,7 +738,7 @@ footer {
       <h2 class="section-title">第一弾イベントの様子</h2>
       <span class="section-line"></span>
     </div>
-    <div class="video-thumb reveal" onclick="this.outerHTML='<video src=\'assets/voices-reels.mp4\' controls playsinline autoplay style=\'width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.06);margin-bottom:2.5rem\'></video>'">
+    <div class="video-thumb reveal" onclick="openVideoOverlay()">
       <img src="assets/voices-reels-thumbnail.png" alt="第一回イベントの様子">
       <div class="video-thumb-overlay">
         <div class="video-thumb-play"><svg viewBox="0 0 24 24" fill="#5a9faa"><polygon points="8,5 20,12 8,19"/></svg></div>
@@ -846,6 +885,18 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(el => observer.observe(el));
+
+// Fullscreen video overlay
+function openVideoOverlay() {
+  const overlay = document.createElement('div');
+  overlay.className = 'video-overlay';
+  overlay.innerHTML = '<button class="video-overlay-close" aria-label="閉じる">&times;</button><video src="assets/voices-reels.mp4" controls playsinline autoplay></video>';
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  const close = () => { overlay.remove(); document.body.style.overflow = ''; };
+  overlay.querySelector('.video-overlay-close').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+}
 
 // 画像保存防止（カジュアル対策）
 document.addEventListener('contextmenu', e => { if(e.target.tagName === 'IMG') e.preventDefault(); });
