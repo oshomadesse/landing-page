@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Life Story — あなたの人生は、あなたが主役。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Sky-blue ↔ Sage-green balanced palette */
+  --sky: #b7e1ed;
+  --sky-light: #d4eef5;
+  --sky-pale: #e8f4f8;
+  --sage: #a8cdb5;        /* blue-shifted sage */
+  --sage-light: #c4ddd0;
+  --sage-pale: #deede5;
+  --blend: #afd8d4;       /* true midpoint: teal-leaning */
+  --blend-light: #c8e4e0;
+  --accent: #5a9faa;      /* teal accent instead of green */
+  --accent-deep: #468b94;
+  --teal: #7ec0c4;
+
+  --cream: #f3f7f8;       /* slightly blue-shifted cream */
+  --warm-white: #f9fcfd;
+  --charcoal: #2C3336;
+  --warm-gray: #5A6568;
+  --light-gray: #94A5A8;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Zen Old Mincho', 'Zen Kaku Gothic New', serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.9;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  padding-bottom: 60px;
+}
+
+img { display: block; max-width: 100%; height: auto; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; pointer-events: auto; }
+b, strong { background: linear-gradient(transparent 70%, rgba(126,192,196,0.25) 70%); -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 0.1em; }
+.icon { display: inline-block; width: 20px; height: 20px; flex-shrink: 0; margin-top: 0.15rem; }
+
+/* ===== BANNER ===== */
+.banner-hero {
+  width: 100%;
+  background: linear-gradient(135deg, #b7e1ed, #a8cdb5);
+}
+.banner-hero img { width: 100%; height: auto; display: block; }
+
+/* ===== INTRO ===== */
+.intro {
+  background: linear-gradient(135deg, #c0dfe9 0%, #c8ddd8 50%, #d2e6cd 100%);
+  text-align: center;
+  padding: 1.2rem 1.2rem 1.5rem;
+  position: relative;
+}
+.intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 140px at 30% 40%, rgba(183,225,237,0.2), transparent),
+    radial-gradient(circle 120px at 70% 50%, rgba(168,205,181,0.15), transparent);
+  pointer-events: none;
+}
+.intro-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; animation: fadeUp 1s ease-out; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.intro-sub { font-size: 0.9rem; color: var(--charcoal); letter-spacing: 0.06em; line-height: 2.1; }
+.intro-label {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--accent-deep);
+  border-bottom: 1px solid var(--blend);
+  padding-bottom: 0.2em;
+}
+
+/* ===== SECTIONS ===== */
+section { padding: 0 1.2rem; }
+.container { max-width: 600px; margin: 0 auto; position: relative; padding: 1rem 0; }
+section + section > .container::before { content: ''; display: block; border-top: 1px dashed var(--light-gray); margin-bottom: 1rem; }
+.message > .container::before,
+.closing > .container::before,
+.recommend > .container::before { display: none; }
+.section-header { text-align: center; margin-bottom: 1.2rem; }
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.section-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+  color: var(--charcoal);
+}
+.section-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--sky), var(--sage));
+  margin: 0.8rem auto 0;
+}
+
+/* ===== MESSAGE ===== */
+.message { background: #ffffff; position: relative; }
+.message::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--blend), transparent);
+}
+.message-text { font-size: 0.92rem; color: var(--charcoal); line-height: 2.3; letter-spacing: 0.04em; text-align: center; }
+.message-text p { margin-bottom: 1.4rem; }
+.message-text .highlight {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 1rem;
+  color: #4e8e72;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+.message-text .emphasis {
+  background: linear-gradient(transparent 70%, rgba(126,192,196,0.25) 70%);
+  padding: 0 0.08em;
+}
+
+/* ===== RECOMMEND ===== */
+.recommend {
+  background: linear-gradient(180deg, #ffffff 0%, var(--sky-pale) 15%, #d4eef5 35%, #d8e8ea 55%, #dde9de 100%);
+}
+.recommend-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 0;
+}
+.recommend-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(175,216,212,0.2);
+}
+.recommend-list li svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.15rem;
+}
+
+/* ===== DETAILS ===== */
+.details { background: linear-gradient(180deg, #dde9de 0%, #deede5 30%, #e0ebd5 50%, #dde9de 100%); }
+.detail-card {
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  border: 1px solid rgba(175,216,212,0.25);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.detail-row { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(175,216,212,0.15); }
+.detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+.detail-row:first-child { padding-top: 0; }
+.detail-label { font-weight: 500; font-size: 0.72rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 0.2rem; text-transform: uppercase; }
+.detail-value { font-size: 0.92rem; color: var(--charcoal); line-height: 1.8; }
+.detail-value small { display: block; color: var(--warm-gray); font-size: 0.78rem; margin-top: 0.3rem; line-height: 1.7; }
+
+/* ===== PROGRAM ===== */
+.program {
+  background: linear-gradient(180deg, #dde9de 0%, #e0ebd5 30%, #deede4 50%, #dde8ea 100%);
+}
+.program-item {
+  position: relative;
+  background: rgba(255,255,255,0.6);
+  border-radius: 14px;
+  padding: 1.8rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(175,216,212,0.2);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+}
+.program-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border: 1px solid var(--blend-light);
+  border-radius: 20px;
+}
+.program-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+}
+.program-name span {
+  background: linear-gradient(transparent 70%, rgba(126,192,196,0.25) 70%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.1em;
+}
+.program-desc { font-size: 0.9rem; color: var(--warm-gray); line-height: 2; }
+.program-steps { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.program-steps li {
+  position: relative;
+  padding: 0.8rem 1rem 0.8rem 1.8rem;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  line-height: 1.75;
+  background: rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
+.program-steps li::before { content: ''; position: absolute; left: 0.8rem; top: 1.1rem; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg, var(--sky), var(--sage)); }
+.step-label { display: inline-block; font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--accent-deep); margin-right: 0.4rem; font-size: 0.95rem; }
+.step-sub { display: block; color: var(--warm-gray); font-size: 0.82rem; margin-top: 0.15rem; }
+
+/* ===== VOICES ===== */
+.voices {
+  background: linear-gradient(180deg, #dde8ea 0%, #d4eef5 30%, var(--sky-pale) 50%, #dde9de 100%);
+}
+.voices-intro { font-size: 0.88rem; color: var(--warm-gray); margin-bottom: 1.5rem; text-align: center; line-height: 1.9; }
+.group-photo { border-radius: 12px; overflow: hidden; margin-bottom: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.group-photo img { width: 100%; object-fit: cover; }
+.video-thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+.video-thumb img { width: 100%; display: block; }
+.video-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.15);
+  transition: background 0.2s ease;
+}
+.video-thumb:hover .video-thumb-overlay { background: rgba(0,0,0,0.25); }
+.video-thumb-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.video-thumb-play svg { width: 22px; height: 22px; margin-left: 3px; }
+
+/* Fullscreen video overlay */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.video-overlay video {
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+.video-overlay-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+.video-overlay-close:hover { background: rgba(255,255,255,0.3); }
+
+/* Before / After */
+.ba-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 0;
+  position: relative;
+}
+.ba-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  line-height: 0;
+}
+.ba-arrow svg {
+  width: 70px;
+  height: 120px;
+}
+.ba-card {
+  background: rgba(255,255,255,0.6);
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba(175,216,212,0.2);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+  text-align: center;
+}
+.ba-list { text-align: left; }
+.ba-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  margin: 0 auto 1rem;
+}
+.ba-label svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.ba-label--before {
+  color: var(--light-gray);
+  border: 1px solid var(--light-gray);
+}
+.ba-label--after {
+  color: var(--accent-deep);
+  border: 1px solid var(--accent);
+}
+.ba-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.ba-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--charcoal);
+}
+.ba-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.2rem;
+}
+
+/* story images grid */
+.stories-scatter {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.scatter-top {
+  grid-template-columns: repeat(3, 1fr);
+}
+.scatter-bottom {
+  grid-template-columns: repeat(4, 1fr);
+}
+.stories-scatter .s-img {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.stories-scatter .s-img img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+}
+
+/* voice text cards */
+.voice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+.voice-item {
+  position: relative;
+  background: rgba(255,255,255,0.8);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.04);
+  border: 1px solid rgba(175,216,212,0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.voice-item::before {
+  display: none;
+}
+
+.voice-avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blend-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+.voice-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.voice-item p {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 0.94rem;
+  color: var(--charcoal);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* ===== SPEAKERS ===== */
+.speakers { background: linear-gradient(180deg, #dde9de 0%, #d4eef5 30%, var(--sky-pale) 50%, #dde9de 100%); }
+.speaker-card {
+  background: rgba(255,255,255,0.75);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(175,216,212,0.2);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.speaker-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.06);
+}
+.speaker-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  letter-spacing: 0.06em;
+}
+.speaker-motto {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-top: 0.3rem;
+  margin: 0 auto 1rem;
+  font-style: italic;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(175,216,212,0.2);
+}
+.speaker-bio { font-size: 0.9rem; color: var(--warm-gray); line-height: 2.1; }
+
+/* ===== CLOSING ===== */
+.closing {
+  background: linear-gradient(135deg, #c8ddd8 0%, #c4dee8 40%, #d2e6cd 100%);
+  border-top: 1px solid var(--blend-light);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle 180px at 25% 35%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(circle 140px at 75% 60%, rgba(255,255,255,0.2), transparent);
+}
+.closing .container { position: relative; z-index: 1; }
+.closing-text { font-size: 0.92rem; color: var(--charcoal); line-height: 2.3; letter-spacing: 0.04em; margin-bottom: 1.5rem; }
+.closing-text p { margin-bottom: 1.2rem; }
+.closing-text .closing-highlight { font-family: 'Zen Old Mincho', serif; font-size: 1rem; color: #4e8e72; letter-spacing: 0.05em; }
+.closing-sign { font-size: 0.88rem; color: var(--warm-gray); margin-top: 1.5rem; }
+.closing-leaf { display: block; margin-top: 0.8rem; }
+.closing-leaf svg { width: 24px; height: 24px; display: inline-block; }
+
+.divider { display: flex; align-items: center; justify-content: center; gap: 0.8rem; max-width: 150px; margin: 0 auto 1.5rem; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--blend); }
+.divider-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+
+/* ===== FIXED FOOTER CTA ===== */
+.fixed-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(135deg, rgba(183,225,237,0.15), rgba(168,205,181,0.15));
+  background-color: rgba(243,247,248,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.65rem 1rem;
+  text-align: center;
+  z-index: 100;
+  border-top: 1px solid var(--blend-light);
+}
+.fixed-cta a {
+  display: inline-block;
+  padding: 0.8rem 2.8rem;
+  background: linear-gradient(135deg, #e8a87c, #d4845a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 60px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  box-shadow: 0 3px 14px rgba(212,132,90,0.35);
+  transition: all 0.3s ease;
+}
+.fixed-cta a:active { transform: scale(0.97); }
+.cta-note { font-size: 0.68rem; color: var(--light-gray); margin-top: 0.35rem; letter-spacing: 0.04em; }
+.cta-limit { font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 0.68rem; color: #c0392b; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+
+footer {
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 2rem 1.2rem 5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+/* Screenshot in recommend section */
+.recommend-screenshot {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.recommend-screenshot img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 0 20px rgba(183,225,237,0.3);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* Program photos layout */
+.program-photos {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.program-photos img {
+  width: 45%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.program-photos--three img {
+  width: 31%;
+}
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (min-width: 600px) {
+  html { font-size: 17px; }
+  section { padding: 5rem 2rem; }
+  .stories-scatter { gap: 0.75rem; }
+  .speaker-card { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: start; }
+  .speaker-photo { margin-bottom: 0; aspect-ratio: 3/4; }
+}
+</style>
+</head>
+<body>
+
+<body>
+
+<div class="banner-hero">
+  <img src="assets/hero.jpg" alt="My Life Story — 正解も不正解もない、あなたがワクワクする人生を">
+</div>
+
+<section class="intro">
+  <div class="intro-content">
+    <span class="intro-label">My Life Story Special Event</span>
+    <p class="intro-sub">理想の人生を描き、見つけ、体感する。<br>自分の人生がより愛おしくなる<br>きっかけを、あなたに。</p>
+  </div>
+</section>
+
+<section class="message">
+  <div class="container">
+    <div class="message-text reveal">
+      <p>選択肢も、情報も、<br>ロールモデルもあふれる今。</p>
+      <p>誰かと比較して<br>自分の道に自信をもてなくなったり、<br>何者かになろうとして焦ったり、<br>どこに向かってるか<br>わからなくなったり。</p>
+      <p>そんな気持ちになることは<br>ありませんか？</p>
+      <p>あなたが不安な気持ちになるのは、<br>あなただけの<br><span class="emphasis">「My Life Story」</span>を<br>描けていないからかもしれません。</p>
+      <p class="highlight">あなたの人生は、<br>遠慮や比較や<br>誰かの期待の先にはない。</p>
+      <p class="highlight">だってあなたの人生は、<br>あなたが主役だから。</p>
+      <p>正解も不正解もない、<br>あなたがワクワクする人生を<br>一緒に描き、見つけ、体感していく。<br>そして、自分の人生がより愛おしくなる<br>きっかけをあなたにお届けします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="recommend" id="recommend">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">For You</p>
+      <h2 class="section-title">こんなあなたにおすすめ</h2>
+      <span class="section-line"></span>
+    </div>
+    <ul class="recommend-list reveal">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg>何者かになろうとして焦ってしまう</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg>自分の可能性をもっと広げていきたい</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg>誰かと比較して自分の道に自信がなくなる</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg>本当は挑戦したいけど、チャレンジすることが怖い</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg>このままでいいんだっけ？と立ち止まってしまうことがある</li>
+    </ul>
+    <div class="recommend-screenshot reveal">
+      <img src="assets/recommend-screenshot.jpg" alt="参加者の声">
+    </div>
+  </div>
+</section>
+
+<section class="program" id="program">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Program</p>
+      <h2 class="section-title">イベント内容</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="program-item reveal">
+      <p class="program-num">PROGRAM 01</p>
+      <h3 class="program-name"><span>じぬ × まどかの<br>赤裸々トークセッション</span></h3>
+      <p class="program-desc">独立して「自分の名前で生きる」と決めた私たち二人のトークセッション。ここでしか話せない私たちの歩みやリアルな葛藤を赤裸々にお伝えします。</p>
+      <div class="program-photos">
+        <img src="assets/talk-session-01.jpg" alt="トークセッション">
+        <img src="assets/talk-session-02.jpg" alt="トークセッション">
+      </div>
+    </div>
+    <div class="program-item reveal">
+      <p class="program-num">PROGRAM 02</p>
+      <h3 class="program-name"><span>マイライフストーリーを描き、<br>見つけるオリジナルワーク</span></h3>
+      <p class="program-desc">自分の本音に沿った理想の人生を見つけるオリジナルワーク。<br>「誰かと比べた先」の人生ではなく、<br>あなただからこそ歩める人生を描きます。</p>
+      <div class="program-photos">
+        <img src="assets/original-work-01.jpg" alt="オリジナルワーク">
+        <img src="assets/original-work-02.jpg" alt="オリジナルワーク">
+      </div>
+    </div>
+    <div class="program-item reveal">
+      <p class="program-num">PROGRAM 03</p>
+      <h3 class="program-name"><span>「This is me！」宣言</span></h3>
+      <p class="program-desc">理想の人生を描くだけで終わらせず、イベントのクライマックスでは、あなたの想いを仲間の前で声にする「This is me！」宣言を実施します。仲間からのあたたかい声援を受けて、ワクワクするあなただけの未来を体感してください。</p>
+      <div class="program-photos program-photos--three">
+        <img src="assets/experience-01.jpg" alt="体感する">
+        <img src="assets/experience-02.jpg" alt="体感する">
+        <img src="assets/experience-03.jpg" alt="体感する">
+      </div>
+    </div>
+      <div class="ba-block reveal">
+      <div class="ba-card">
+        <p class="ba-label ba-label--before"><svg viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><path d="M8 19h.01"/><path d="M8 22h.01"/><path d="M12 17h.01"/><path d="M12 20h.01"/><path d="M16 19h.01"/><path d="M16 22h.01"/></svg>Before</p>
+        <ul class="ba-list">
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>漠然とした不安がある</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>誰かと比較してしまう</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>やりたいことがわからない</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>一歩を踏み出せない</li>
+        </ul>
+      </div>
+      <div class="ba-arrow">
+        <svg viewBox="0 0 24 24" fill="#d4c5a9" stroke="none" preserveAspectRatio="none"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="ba-card">
+        <p class="ba-label ba-label--after"><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>After</p>
+        <ul class="ba-list">
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>自分だけの理想</b>が明確に</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>自分軸</b>で人生を描ける</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>ワクワクする</b>未来が見える</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>仲間と一歩</b>を踏み出せる</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Voices</p>
+      <h2 class="section-title">第一弾イベントの様子</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="video-thumb reveal" onclick="openVideoOverlay()">
+      <img src="assets/voices-reels-thumbnail.png" alt="第一回イベントの様子">
+      <div class="video-thumb-overlay">
+        <div class="video-thumb-play"><svg viewBox="0 0 24 24" fill="#5a9faa"><polygon points="8,5 20,12 8,19"/></svg></div>
+      </div>
+    </div>
+    <p class="voices-note reveal" style="font-size:0.78rem;color:#c0392b;text-align:center;margin-bottom:1.5rem;">※本イベントは第一弾と異なる内容で実施いたします</p>
+    <p class="voices-intro reveal">前回イベント<br>「一歩踏みだす勇気のつくりかた」では<br>実際にこんな声がたくさん届きました</p>
+
+    <div class="group-photo reveal">
+      <img src="assets/group-photo.jpg" alt="前回イベント集合写真">
+    </div>
+
+    <!-- 3 voice text items -->
+    <div class="voice-list reveal">
+      <div class="voice-item">
+        <div class="voice-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <p>ずっと憧れてた方と<br>お仕事ができた！</p>
+      </div>
+      <div class="voice-item">
+        <div class="voice-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <p>思い切って発信してみたら<br>たくさんの方と繋がれた！</p>
+      </div>
+      <div class="voice-item">
+        <div class="voice-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <p>これからも切磋琢磨できる<br>仲間と繋がれた！</p>
+      </div>
+    </div>
+
+    <!-- 3 stories scattered above -->
+    <div class="stories-scatter scatter-top reveal">
+      <div class="s-img"><img src="assets/testimonial-01.jpg" alt="参加者の感想"></div>
+      <div class="s-img"><img src="assets/testimonial-02.jpg" alt="参加者の感想"></div>
+      <div class="s-img"><img src="assets/testimonial-03.jpg" alt="参加者の感想"></div>
+    </div>
+
+    <!-- 4 stories scattered below -->
+    <div class="stories-scatter scatter-bottom reveal">
+      <div class="s-img"><img src="assets/testimonial-04.jpg" alt="参加者の感想"></div>
+      <div class="s-img"><img src="assets/testimonial-05.jpg" alt="参加者の感想"></div>
+      <div class="s-img"><img src="assets/testimonial-06.jpg" alt="参加者の感想"></div>
+      <div class="s-img"><img src="assets/testimonial-07.jpg" alt="参加者の感想"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="details" id="details">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Event Details</p>
+      <h2 class="section-title">イベント詳細</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="detail-card reveal">
+      <div class="detail-row">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div>
+          <p class="detail-label">日時</p>
+          <p class="detail-value">2026年 5月30日（土）<br>12:30 – 15:00</p>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8l-4 4-2-2"/></svg></div>
+        <div>
+          <p class="detail-label">参加費</p>
+          <p class="detail-value">¥8,800（税込）</p>
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <p class="detail-label">会場</p>
+          <p class="detail-value">TSUNAGARU SPACE（ツナガルスペース）<br>愛知県名古屋市中区栄3丁目19番19号<br><a href="https://www.google.com/maps/search/?api=1&query=愛知県名古屋市中区栄3丁目19番19号" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-size:0.85rem;">（Google Mapはこちら）</a><small>名城線 矢場町駅 徒歩8分<br>東山線 栄駅 徒歩10分<br>東山線 伏見駅 徒歩12分</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="speakers" id="speakers">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Speakers</p>
+      <h2 class="section-title">主催者紹介</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="speaker-card reveal">
+      <img src="assets/speaker-madoka.jpg" alt="西方 まどか" class="speaker-photo">
+      <div class="speaker-info">
+        <h3 class="speaker-name">西方 まどか</h3>
+        <p class="speaker-motto">感情のタイムカプセル -おもいばこ- 代表<br>動画制作サービスTODOKU movie. 代表</p>
+        <p class="speaker-bio">大学卒業後、ウェディング会社に就職。ウェディングプランナーとして結婚式を創り届けるうちに「人との繋がりを感じられる瞬間を遺したい」と感じ、会社を辞め独立。<br><br>現在は、家族の想いを遺す感情のタイムカプセル「おもいばこ」というオリジナルサービスを立ち上げたり、女性起業家の想いを届ける動画編集者（主にリール）として活動しています。</p>
+      </div>
+    </div>
+    <div class="speaker-card reveal">
+      <img src="assets/speaker-aoi.jpg" alt="地主 葵" class="speaker-photo">
+      <div class="speaker-info">
+        <h3 class="speaker-name">地主 葵</h3>
+        <p class="speaker-motto">ライフコーチ / 朝活コミュニティ主宰</p>
+        <p class="speaker-bio">大学卒業後、ブライダル企業に就職。約200組の新郎新婦様の幸せな1日をプロデュース。自身のライフステージの変化に伴い、自分の幸せや本当に叶えたいことを見つめ直した結果、会社を退職し2024年6月ライフコーチとして独立。<br><br>現在は"自分の人生"を自然体で輝きながら切り拓く人のサポートをしたいという想いで、パーソナルコーチング、朝活コミュニティを主宰し、一歩踏み出す方の伴走をしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <div class="divider reveal"><div class="divider-dot"></div></div>
+    <div class="closing-text reveal">
+      <p>これまで私たち自身も<br>「もうこのままでいいや…」と、<br>自分の人生を諦めそうに<br>なることがありました。</p>
+      <p>それでも、<br><span class="closing-highlight">一生に一度の人生を、<br>"私だからこそ"の<br>最幸なものにしたい。</span></p>
+      <p>80%満足の人生じゃなくて、<br><span class="closing-highlight">「100%以上幸せ！」って<br>胸を張って言える人生にしたい。</span></p>
+      <p>そんな想いを諦めたくなくて、<br>小さくても一歩ずつ、<br>私たちは動いてきました。</p>
+      <p>まだまだ模索中。<br>キラキラなことばかりじゃない。<br>でも、だからこそ<br>近く感じてもらえる存在として、<br>背中をそっと押せたらと<br>思っています。</p>
+      <p>このイベントは、<br>「本音でつながりたい」<br>「自分の人生を生きたい」<br>そんなあなたの背中を、<br>そっとあたたかく押す場所。</p>
+      <p>一緒に叶えたい人生に向かって<br>エネルギーをシェアし合いましょう！</p>
+      <p>当日お会いできること、<br>心から楽しみにしております！</p>
+      <div class="closing-photo reveal" style="margin-top:1.5rem;text-align:center;">
+        <img src="assets/closing.jpg" alt="じぬ × まどか" style="width:80%;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.08);margin:0 auto;display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>My Life Story<br>あなたの人生は、あなたが主役。</p>
+  <p style="margin-top:0.4rem;">&copy; 2026 じぬ &times; まどか</p>
+</footer>
+
+<div class="fixed-cta">
+  <p class="cta-limit" style="font-weight:700;">\先着20名様限定/</p>
+  <a href="#" id="apply-btn">お申し込みはこちら</a>
+</div>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// Fullscreen video overlay
+function openVideoOverlay() {
+  const overlay = document.createElement('div');
+  overlay.className = 'video-overlay';
+  overlay.innerHTML = '<button class="video-overlay-close" aria-label="閉じる">&times;</button><video src="assets/voices-reels.mp4" controls playsinline autoplay></video>';
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  const close = () => { overlay.remove(); document.body.style.overflow = ''; };
+  overlay.querySelector('.video-overlay-close').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+}
+
+// 画像保存防止（カジュアル対策）
+document.addEventListener('contextmenu', e => { if(e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('dragstart', e => { if(e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('touchstart', e => {
+  if(e.target.tagName === 'IMG') {
+    e.target.style.pointerEvents = 'none';
+    setTimeout(() => { e.target.style.pointerEvents = ''; }, 500);
+  }
+}, {passive: true});
+</script>
+</body>
+</html>
