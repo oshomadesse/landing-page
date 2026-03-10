@@ -325,22 +325,22 @@ section + section > .container::before { content: ''; display: block; border-top
 /* Before / After */
 .ba-block {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   margin-bottom: 0;
   position: relative;
 }
 .ba-arrow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
   z-index: 1;
   line-height: 0;
+  padding: 0.3rem 0;
 }
 .ba-arrow svg {
-  width: 70px;
-  height: 120px;
+  width: 50px;
+  height: 50px;
+  transform: rotate(90deg);
 }
 .ba-card {
   background: rgba(255,255,255,0.6);
@@ -374,8 +374,12 @@ section + section > .container::before { content: ''; display: block; border-top
   border: 1px solid var(--light-gray);
 }
 .ba-label--after {
-  color: var(--accent-deep);
-  border: 1px solid var(--accent);
+  color: #d4845a;
+  border: 1px solid #e8a87c;
+}
+.ba-card:last-child b,
+.ba-card:last-child strong {
+  background: linear-gradient(transparent 70%, rgba(232,168,124,0.3) 70%);
 }
 .ba-list {
   list-style: none;
@@ -709,22 +713,22 @@ footer {
       <div class="ba-card">
         <p class="ba-label ba-label--before"><svg viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><path d="M8 19h.01"/><path d="M8 22h.01"/><path d="M12 17h.01"/><path d="M12 20h.01"/><path d="M16 19h.01"/><path d="M16 22h.01"/></svg>Before</p>
         <ul class="ba-list">
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>漠然とした不安がある</li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>誰かと比較してしまう</li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>やりたいことがわからない</li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>一歩を踏み出せない</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>誰かの活躍が羨ましく感じてしまう</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>どこに向かって走っているかわからなくなる</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>今も幸せだけど、もっと自分の人生にワクワクしたい</li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#94A5A8" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>2026年は、今よりさらに飛躍したい</li>
         </ul>
       </div>
       <div class="ba-arrow">
-        <svg viewBox="0 0 24 24" fill="#d4c5a9" stroke="none" preserveAspectRatio="none"><path d="M8 5v14l11-7z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#e8a87c" stroke="none"><path d="M8 5v14l11-7z"/></svg>
       </div>
       <div class="ba-card">
-        <p class="ba-label ba-label--after"><svg viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>After</p>
+        <p class="ba-label ba-label--after"><svg viewBox="0 0 24 24" fill="none" stroke="#d4845a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>After</p>
         <ul class="ba-list">
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>自分だけの理想</b>が明確に</span></li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>自分軸</b>で人生を描ける</span></li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>ワクワクする</b>未来が見える</span></li>
-          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#5a9faa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>仲間と一歩</b>を踏み出せる</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#d4845a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>これが私の人生だ！</b>と胸を張って言える</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#d4845a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span>自分の未来に<b>ワクワク</b>している</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#d4845a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>自分軸</b>で理想の人生を描けている</span></li>
+          <li><svg class="ba-icon" viewBox="0 0 24 24" fill="none" stroke="#d4845a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 16 9"/></svg><span><b>熱量高い仲間</b>と新しい一歩を踏み出せる</span></li>
         </ul>
       </div>
     </div>
